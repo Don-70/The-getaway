@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Add a New Toy | Dog Collector
+
+{% endblock %}
+
+{% block content %}
+
+{% if object %}
+<h1>Edit <span>{{ object.name }} </span>{{object.description}}</h1>
+{% else %}
+<h1> Add New ToDp</h1>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="{% if object %} Update {% else %} Add New {% endif %}" class="btn green" />
+</form>
+
+{% endblock %}

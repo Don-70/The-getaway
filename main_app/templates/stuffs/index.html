@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Things to do Index | The GetaWay
+{% endblock %}
+
+{% block content %}
+<h1>Index</h1>
+
+{% for stuff in object_list %}
+<a href="{% url 'stuffs_detail' stuff.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">
+                {{ stuff.name }}-<span class="{{ stuff.color }}-text">{{stuff.description.capitalize}}</span>
+            </span>
+        </div>
+    </div>
+</a>
+{% endfor %}
+
+
+{% endblock %}
